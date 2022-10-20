@@ -206,9 +206,25 @@ function nextButton() {
     //   recognizing = false;
     //   recognition.stop();
     // }
-    console.log("next image requested")
-    console.log(final_transcript.split(" "));
+    console.log("next image requested");
+    console.log([final_transcript]);
+    newImg();
   }
+var testImages = [
+  "https://images.ctfassets.net/81iqaqpfd8fy/3r4flvP8Z26WmkMwAEWEco/870554ed7577541c5f3bc04942a47b95/78745131.jpg?w=1200&h=1200&fm=jpg&fit=fill",
+  "https://upload.wikimedia.org/wikipedia/commons/c/cb/The_Blue_Marble_%28remastered%29.jpg",
+  "https://www.princeton.edu/sites/default/files/styles/half_2x/public/images/2022/02/KOA_Nassau_2697x1517.jpg?itok=iQEwihUn",
+  "https://thumbs.dreamstime.com/b/assorted-american-food-top-view-109748438.jpg",
+  "https://media.gettyimages.com/photos/stack-of-books-picture-id157482029?s=612x612",
+  "https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?cs=srgb&dl=pexels-binyamin-mellish-186077.jpg&fm=jpg",
+  "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/high-angle-view-of-variety-of-succulent-plants-royalty-free-image-1584462052.jpg",
+  "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/newscms/2019_33/2203981/171026-better-coffee-boost-se-329p.jpg",
+  "https://studio.knightlab.com/assets/people/kris-hammond.jpg",
+]
+function newImg() {
+  let index = Math.floor(Math.random() * testImages.length);
+  document.getElementById("images").innerHTML = `<img id="new_img" src="${testImages[index]}">`;
+}
 
 function emailButton() {
   if (recognizing) {
