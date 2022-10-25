@@ -201,6 +201,9 @@ function copyButton() {
   showInfo('');
 }
 
+// save to json
+var iterator = 0;
+const fs = require("fs");
 function nextButton() {
     // if (recognizing) {
     //   recognizing = false;
@@ -208,6 +211,13 @@ function nextButton() {
     // }
     console.log("next image requested");
     console.log([final_transcript]);
+    var myJsonString = JSON.stringify([final_transcript]);
+    fs.writeFile("user_input.json", myJsonString, (err) => {
+      if (err) {
+        throw err;
+      }
+      console.log("JSON data is saved.");
+    });
     newImg();
   }
 var testImages = [
