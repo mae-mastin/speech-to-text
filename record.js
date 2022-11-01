@@ -1,4 +1,3 @@
-let assert = require("assert");
 let pythonBridge = require("python-bridge");
 
 var langs = [
