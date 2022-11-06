@@ -206,6 +206,9 @@ function copyButton() {
   showInfo('');
 }
 
+// save to json
+var iterator = 0;
+const fs = require("fs");
 function nextButton() {
     // if (recognizing) {
     //   recognizing = false;
@@ -214,6 +217,13 @@ function nextButton() {
     console.log("next image requested");
     speechChunks[0] = 
     console.log([final_transcript]);
+    var myJsonString = JSON.stringify([final_transcript]);
+    fs.writeFile("user_input.json", myJsonString, (err) => {
+      if (err) {
+        throw err;
+      }
+      console.log("JSON data is saved.");
+    });
     newImg();
   }
 var testImages = [
@@ -225,7 +235,7 @@ var testImages = [
   "https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?cs=srgb&dl=pexels-binyamin-mellish-186077.jpg&fm=jpg",
   "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/high-angle-view-of-variety-of-succulent-plants-royalty-free-image-1584462052.jpg",
   "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/newscms/2019_33/2203981/171026-better-coffee-boost-se-329p.jpg",
-  "https://studio.knightlab.com/assets/people/kris-hammond.jpg",
+  // "https://studio.knightlab.com/assets/people/kris-hammond.jpg",
 ]
 function newImg() {
   let index = Math.floor(Math.random() * testImages.length);
