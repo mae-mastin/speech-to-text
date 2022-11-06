@@ -65,6 +65,8 @@ var langs =
 var select_language = document.getElementById('select_language');
 var select_dialect = document.getElementById('select_dialect');
 
+var speechChunks = [''];
+
 for (var i = 0; i < langs.length; i++) {
   select_language.options[i] = new Option(langs[i][0], i);
 }
@@ -152,8 +154,11 @@ if (!('webkitSpeechRecognition' in window)) {
     for (var i = event.resultIndex; i < event.results.length; ++i) {
       if (event.results[i].isFinal) {
         final_transcript += event.results[i][0].transcript;
+        speechChunks[0] = event.results[i][0].transcript;
+        console.log(speechChunks);
       } else {
         interim_transcript += event.results[i][0].transcript;
+        console.log(interim_transcript);
       }
     }
     final_transcript = capitalize(final_transcript);
@@ -207,6 +212,7 @@ function nextButton() {
     //   recognition.stop();
     // }
     console.log("next image requested");
+    speechChunks[0] = 
     console.log([final_transcript]);
     newImg();
   }
