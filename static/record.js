@@ -208,22 +208,45 @@ function copyButton() {
 
 // save to json
 var iterator = 0;
-const fs = require("fs");
+const request = new XMLHttpRequest()
 function nextButton() {
     // if (recognizing) {
     //   recognizing = false;
     //   recognition.stop();
     // }
     console.log("next image requested");
+    console.log('final_transcript', final_transcript)
     speechChunks[0] = 
     console.log([final_transcript]);
     var myJsonString = JSON.stringify([final_transcript]);
-    fs.writeFile("user_input.json", myJsonString, (err) => {
-      if (err) {
-        throw err;
+
+    fetch('/', {
+      headers:{
+        'Content-type': 'application/json'
+      },
+      method: 'POST',
+      body: myJsonString
+    }).then(function (response) {
+      if (response.ok) {
+        response.json()
+        .then(function (response) {
+          console.log(response);
+        });
+      } else {
+        console.log(response);
+        throw Error('error in posting to index');
       }
-      console.log("JSON data is saved.");
+    }).catch(function (error) {
+      console.log(error);
     });
+  //   $.ajax({
+  //     url: 'abc',
+  //     type: 'POST',
+  //     dataType: 'json',
+  //     data: JSON.stringify({script: [final_transcript]}),
+  //     contentType:"application/json",
+  // });
+
     newImg();
   }
 var testImages = [
