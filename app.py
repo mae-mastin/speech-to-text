@@ -15,10 +15,10 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 def index():
     if request.method == "POST":
         jsonData = request.get_json()
-        with open("sample.json", "w") as outfile:
-            outfile.write(jsonData)
-        #return json.dumps({'success':True}), 200, {'ContentType':'application/json'}
-        return 'OK'
+        print(jsonData)
+        #with open("sample.json", "w") as outfile:
+         #   outfile.write(jsonData)
+        return json.dumps({'success':True}), 200, {'ContentType':'application/json'}
     return render_template("record.html")
 
 @app.route('/test/<string:final_transcript>', methods=['POST'])
