@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 import json
-from generator import generate_score
+from generator import get_image
 
 # Creating the flask object
 app = Flask(__name__)
@@ -15,16 +15,14 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 def index():
     if request.method == "POST":
         jsonData = request.get_json()
-        print(jsonData)
+        # # print(jsonData)
+        print('success')
+        get_image(jsonData)
         #with open("sample.json", "w") as outfile:
          #   outfile.write(jsonData)
         return json.dumps({'success':True}), 200, {'ContentType':'application/json'}
     return render_template("record.html")
 
-@app.route('/test/<string:final_transcript>', methods=['POST'])
-def test(final_transcript):
-    final_transcript = json.loads(final_transcript)
-    return generate_score(final_transcript)
 
 # When this Python script is called this command is called too, to actively
 # host the routes on a local server, to change the port (like 5000 or 3000)
