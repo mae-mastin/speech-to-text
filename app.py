@@ -3,8 +3,8 @@ from flask_cors import CORS
 import json
 from generator import get_image
 from PIL import Image
-import io
-import base64
+# import io
+# import base64
 
 # Creating the flask object
 app = Flask(__name__)
@@ -22,16 +22,12 @@ def index():
         print('new_image')
         # # print(jsonData)
         get_image(jsonData)
-
-    im = Image.open('static/image.jpg')
-    data = io.BytesIO()
-    im.save(data, 'JPEG')
-    encoded_img_data = base64.b64encode(data.getvalue())
+        return json.dumps({'success':True}), 200, {'ContentType':'application/json'}
     #with open("sample.json", "w") as outfile:
         #   outfile.write(jsonData)
 
-       # return json.dumps({'success':True}), 200, {'ContentType':'application/json'}
-    return render_template("record.html", img_data=encoded_img_data.decode('utf-8'))
+       
+    return render_template("record.html")
 
 
 # When this Python script is called this command is called too, to actively
