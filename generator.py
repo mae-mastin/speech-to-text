@@ -37,10 +37,10 @@ data_viz = torchvision.datasets.ImageFolder(
     transform=transform
 )
 
-def get_image(text):
+def get_image(text, counter):
     text=clip.tokenize(text).to(device)
     text_features = model.encode_text(text)
     scores = torch.einsum('ab, cb -> ac', stackembeddings, text_features)
     idx = torch.argmax(scores)
     pilImage = Image.fromarray((np.transpose(data_viz[idx][0], (1,2,0)).numpy() * 255).astype(np.uint8))
-    pilImage.save('static/image.jpg')
+    pilImage.save('static/image'+str(counter)+'.jpg')

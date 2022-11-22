@@ -163,7 +163,9 @@ if (!("webkitSpeechRecognition" in window)) {
       if (event.results[i].isFinal) {
         final_transcript += event.results[i][0].transcript;
         speechChunks[0] = event.results[i][0].transcript;
-        console.log(speechChunks);
+        console.log(speechChunks[0]);
+        console.log('finalized speech chunk, going to new image');
+        nextButton();
       } else {
         interim_transcript += event.results[i][0].transcript;
         console.log(interim_transcript);
@@ -225,11 +227,11 @@ function nextButton() {
   //   recognition.stop();
   // }
   console.log("next image requested");
-  console.log("final_transcript", final_transcript);
-  speechChunks[0] = console.log([final_transcript]);
-  var myJsonString = JSON.stringify([final_transcript]);
+  // speechChunks[0] = console.log([final_transcript]);
+  var myJsonString = JSON.stringify([speechChunks[0]]);
+  console.log("using text:", speechChunks[0]);
 
-  fetch("/", {
+  fetch("/newImage", {
     headers: {
       "Content-type": "application/json",
     },
@@ -240,6 +242,9 @@ function nextButton() {
       if (response.ok) {
         response.json().then(function (response) {
           console.log(response);
+          document.getElementById(
+            "images"
+          ).innerHTML = `<img id="picture" src="static/image${response.image_suffix}.jpg">`;
         });
       } else {
         console.log(response);
@@ -257,7 +262,7 @@ function nextButton() {
   //     contentType:"application/json",
   // });
 
-  newImg();
+  //newImg();
 }
 var testImages = [
   "https://images.ctfassets.net/81iqaqpfd8fy/3r4flvP8Z26WmkMwAEWEco/870554ed7577541c5f3bc04942a47b95/78745131.jpg?w=1200&h=1200&fm=jpg&fit=fill",
