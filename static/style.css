@@ -63,17 +63,14 @@
     visibility: hidden;
   }
   #results {
+    max-width: 75%;
     font-size: 14px;
     font-weight: bold;
     border: 1px solid #ddd;
     padding: 15px;
+    margin: auto;
     text-align: left;
-    min-height: 150px;
-  }
-  #start_button {
-    border: 0;
-    background-color:transparent;
-    padding: 0;
+    min-height: 40px;
   }
 
   #next_button {
@@ -88,6 +85,88 @@
     'opsz' 48
   }
 
-  #new_img {
-    max-width: 200px;
+  #picture {
+    max-height: 10em; 
   }
+
+  .topnav {
+    color: white;
+    height: auto;
+    width: 90%;
+    position: relative;
+    padding: 10px; 
+    overflow: hidden;
+  }
+
+  #svtext {
+    background-color: rgb(24, 24, 24);
+    font-family: 'Anton', cursive;
+    margin-left: 40px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 20px;
+    font-size: 40px;
+    border-radius: 6px;
+    align-items: center;
+  }
+
+  /* #evtext {
+    font-family: 'Anton', cursive;
+    font-size: 15px;
+    font-style: italic;
+  } */
+
+  #start_button, #presenting_button {
+    appearance: none;
+    background-color: #2ea44f;
+    border: 1px solid rgba(27, 31, 35, .15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    /* font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"; */
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 5px 16px;
+    height: 45px;
+    width: 200px;
+    position: absolute;
+    top: 40%;
+    left: 80%;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+  #presenting_button {
+    background-color: rgb(175, 4, 4);
+  }
+
+  #presenting_button {
+    animation-name: pulse;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+
+  @keyframes pulse{
+    0%{
+      box-shadow: 0px 0px 3px 0px rgba(173,0,0,.3);
+    }
+    65%{
+      box-shadow: 0px 0px 3px 8px rgba(173,0,0,.3);
+    }
+    90%{
+      box-shadow: 0px 0px 3px 8px rgba(173,0,0,0);
+    }
+  }
+
+
+

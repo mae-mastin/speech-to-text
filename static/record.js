@@ -70,17 +70,17 @@ var langs = [
   ["Lingua latīna", ["la"]],
 ];
 
-var select_language = document.getElementById("select_language");
-var select_dialect = document.getElementById("select_dialect");
+// var select_language = document.getElementById("select_language");
+// var select_dialect = document.getElementById("select_dialect");
 
 var speechChunks = [""];
 
-for (var i = 0; i < langs.length; i++) {
-  select_language.options[i] = new Option(langs[i][0], i);
-}
-select_language.selectedIndex = 6;
-updateCountry();
-select_dialect.selectedIndex = 6;
+// for (var i = 0; i < langs.length; i++) {
+//   select_language.options[i] = new Option(langs[i][0], i);
+// }
+// select_language.selectedIndex = 6;
+// updateCountry();
+// select_dialect.selectedIndex = 6;
 showInfo("info_start");
 
 function updateCountry() {
@@ -172,7 +172,7 @@ if (!("webkitSpeechRecognition" in window)) {
       }
     }
     final_transcript = capitalize(final_transcript);
-    final_span.innerHTML = linebreak(final_transcript);
+    // final_span.innerHTML = linebreak(final_transcript);
     interim_span.innerHTML = linebreak(interim_transcript);
     if (final_transcript || interim_transcript) {
       showButtons("inline-block");
@@ -300,7 +300,7 @@ function startButton(event) {
     return;
   }
   final_transcript = "";
-  recognition.lang = select_dialect.value;
+  // recognition.lang = select_dialect.value;
   recognition.start();
   ignore_onend = false;
   final_span.innerHTML = "";
