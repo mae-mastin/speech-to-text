@@ -34,7 +34,10 @@
     padding-right: 3px; 
   }
   .interim {
-    color: gray;
+    color: black;
+  }
+  #interim_span {
+    font-size: 20px;
   }
   .info {
     font-size: 14px;
@@ -52,10 +55,10 @@
     text-align: right;
     vertical-align: top;
   }
-  #headline {
+  /* #headline {
     font-size: 40px;
     font-weight: 300;
-  }
+  } */
   #info {
     font-size: 20px;
     text-align: center;
@@ -66,10 +69,10 @@
     max-width: 75%;
     font-size: 14px;
     font-weight: bold;
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
     padding: 15px;
     margin: auto;
-    text-align: left;
+    text-align: center;
     min-height: 40px;
   }
 
@@ -85,15 +88,21 @@
     'opsz' 48
   }
 
-  #picture {
+  /* #picture {
     max-height: 10em; 
+  } */
+
+  #picture {
+    height: 28em;
   }
 
   .topnav {
     color: white;
-    height: auto;
-    width: 90%;
+    width: 16%;
+    background-color: rgb(24, 24, 24);
+    border-radius: 6px;
     position: relative;
+    text-align: center;
     padding: 10px; 
     overflow: hidden;
   }
@@ -101,13 +110,8 @@
   #svtext {
     background-color: rgb(24, 24, 24);
     font-family: 'Anton', cursive;
-    margin-left: 40px;
     padding: 10px;
-    padding-left: 15px;
-    padding-right: 20px;
-    font-size: 40px;
-    border-radius: 6px;
-    align-items: center;
+    font-size: 35px;
   }
 
   /* #evtext {
@@ -133,9 +137,9 @@
     padding: 5px 16px;
     height: 45px;
     width: 200px;
-    position: absolute;
-    top: 40%;
-    left: 80%;
+    position: relative;
+    /* top: 40%;
+    left: 80%; */
     text-align: center;
     text-decoration: none;
     user-select: none;
@@ -144,6 +148,12 @@
     vertical-align: middle;
     white-space: nowrap;
 }
+
+  #start_button {
+    height: 80px;
+    width: 300px;
+    font-size: 18px;
+  }
 
   #presenting_button {
     background-color: rgb(175, 4, 4);

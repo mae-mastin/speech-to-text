@@ -144,7 +144,7 @@ if (!("webkitSpeechRecognition" in window)) {
       showInfo("info_start");
       return;
     }
-    showInfo("");
+    showInfo("info_speak_now");
     if (window.getSelection) {
       window.getSelection().removeAllRanges();
       var range = document.createRange();
@@ -309,6 +309,10 @@ function startButton(event) {
   showInfo("info_allow");
   showButtons("none");
   start_timestamp = event.timeStamp;
+}
+
+function stopButton(event) {
+  location.reload();
 }
 
 function showInfo(s) {

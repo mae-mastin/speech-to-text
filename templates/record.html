@@ -15,32 +15,9 @@
 
 <div class="topnav">
   <span id = "svtext">SPEECHVISION</span>
-  <span id="info">
-    <span id="info_start">
-      <button id="start_button" role="button" onclick="startButton(event)">START PRESENTING</button>
-    </span>
-    <span id="info_speak_now">
-      <button id="presenting_button" role="button">PRESENTING</button>
-    </span>
-
-    <p id="info_no_speech">No speech was detected. You may need to adjust your
-      <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
-        microphone settings</a>.</p>
-    <p id="info_no_microphone" style="display:none">
-      No microphone was found. Ensure that a microphone is installed and that
-      <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
-      microphone settings</a> are configured correctly.</p>
-    <p id="info_allow">Click the "Allow" button above to enable your microphone.</p>
-    <p id="info_denied">Permission to use microphone was denied.</p>
-    <p id="info_blocked">Permission to use microphone is blocked. To change,
-      go to chrome://settings/contentExceptions#media-stream</p>
-    <p id="info_upgrade">Web Speech API is not supported by this browser.
-      Upgrade to <a href="//www.google.com/chrome">Chrome</a>
-      version 25 or later.</p>
-  </span>
 </div>
 
-<h1 class="center" id="headline"> 
+<div class="center" id="headline"> 
 <!-- <div id="info"> -->
   <!-- <p id="info_start" role="button">
     <button id="start_button" onclick="startButton(event)">
@@ -74,8 +51,32 @@
 <div id="images">
   <!-- <img id="picture" src="data:image/jpeg;base64,{{ img_data }}"> -->
   <img id="picture" src="" style="display: none;">
+  <!-- <img id="picture" src="https://upload.wikimedia.org/wikipedia/commons/c/cb/The_Blue_Marble_%28remastered%29.jpg">  -->
 </div>
 <br>
+<div id="info">
+  <div id="info_start">
+    <button id="start_button" role="button" onclick="startButton(event)">START PRESENTING</button>
+  </div>
+  <div id="info_speak_now">
+    <button id="presenting_button" role="button" onclick="stopButton(event)">PRESENTING</button>
+  </div>
+
+  <p id="info_no_speech">No speech was detected. You may need to adjust your
+    <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+      microphone settings</a>.</p>
+  <p id="info_no_microphone" style="display:none">
+    No microphone was found. Ensure that a microphone is installed and that
+    <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+    microphone settings</a> are configured correctly.</p>
+  <p id="info_allow">Click the "Allow" button above to enable your microphone.</p>
+  <p id="info_denied">Permission to use microphone was denied.</p>
+  <p id="info_blocked">Permission to use microphone is blocked. To change,
+    go to chrome://settings/contentExceptions#media-stream</p>
+  <p id="info_upgrade">Web Speech API is not supported by this browser.
+    Upgrade to <a href="//www.google.com/chrome">Chrome</a>
+    version 25 or later.</p>
+  </div>
 <div id="results">
   <span id="final_span" class="final"></span>
   <span id="interim_span" class="interim"></span>
